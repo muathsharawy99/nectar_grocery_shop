@@ -20,26 +20,29 @@ class LoginCubit extends Cubit<LoginState> {
     emit(ObsecureState());
   }
 
-  void login() {
+  void login() async {
     emit(LoginLoadingState());
     DioHelper.post(
       endPoint: EndPoints.login,
       data: {
         "email": emailController.text,
-        "password": passwordController.text
+        "password": passwordController.text,
       },
     ).then(
       (value) {
-        print(value.data);
+        print(value.data["code"]);
+        print("Hi then");
         emit(LoginSuccessState());
       },
-    ).catchError((onError) {
-      if (onError is DioError) {
-        print(onError.response?.data["message"].toString() ?? "");
-      }
-      emit(
-        LoginErrorState(),
-      );
-    });
+    ).catchError(
+      (onError) {
+        if (onError is DioError) {
+          print(onError.response?.data["message"].toString() ?? "Dio Error");
+          print ("Hi Error");
+          emit(LoginErrorState());
+        }
+        throw onError;
+      },
+    );
   }
 }

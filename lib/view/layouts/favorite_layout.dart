@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view/components/favorite_bar.dart';
 
 class FavoriteLayout extends StatelessWidget {
@@ -54,16 +55,14 @@ class FavoriteLayout extends StatelessWidget {
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(
-                  0XFF53B175,
-                ),
+                backgroundColor: ColorAssets.green,
               ),
               onPressed: () {},
               child: Text(
                 "Add All To Cart",
                 style: GoogleFonts.poppins(),
               ),
-            ),
+                        ),
           )
         ],
       ),

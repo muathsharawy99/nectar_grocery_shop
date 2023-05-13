@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view/screens/auth/number_screen.dart';
 import 'package:nectaar/view_model/navigation/navigation.dart';
 
@@ -83,9 +84,7 @@ class SigninScreen extends StatelessWidget {
                         ),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(
-                              0XFF5383EC,
-                            ),
+                            backgroundColor: ColorAssets.googleBlue,
                           ),
                           onPressed: () {},
                           child: Row(
@@ -114,9 +113,7 @@ class SigninScreen extends StatelessWidget {
                         ),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(
-                              0XFF4A66AC,
-                            ),
+                            backgroundColor: ColorAssets.facebookBlue,
                           ),
                           onPressed: () {},
                           child: Row(

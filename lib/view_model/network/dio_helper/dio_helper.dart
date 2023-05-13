@@ -24,4 +24,20 @@ class DioHelper {
       rethrow;
     }
   }
+  static Future<Response> get(
+      {required String endPoint,
+      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? data}) async {
+    try {
+      var response = await dio.get(
+        endPoint,
+        queryParameters: queryParameters,
+        data: data,
+      );
+      return response;
+    } catch (e) {
+      print("error $e");
+      rethrow;
+    }
+  }
 }

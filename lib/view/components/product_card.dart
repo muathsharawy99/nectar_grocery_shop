@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectaar/model/product_model.dart';
+import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view/screens/productDetails_screen.dart';
 import 'package:nectaar/view_model/navigation/navigation.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key}) : super(key: key);
+  final Product product;
+
+  const ProductCard({required this.product, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,9 @@ class ProductCard extends StatelessWidget {
         onTap: () {
           Navigation.push(
             context,
-            ProductDetails(),
+            ProductDetails(id: product.id ?? 0),
           );
+
         },
         child: SizedBox(
           width: 160.w,
@@ -49,7 +54,7 @@ class ProductCard extends StatelessWidget {
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Organic Bananas",
+                          "${product.name ?? "Organic Bananas"}",
                           style: GoogleFonts.poppins(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
@@ -71,7 +76,7 @@ class ProductCard extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "\$4.99",
+                              "\$${product.price}",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
                               ),
@@ -83,9 +88,7 @@ class ProductCard extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(
                                   10.r,
                                 ),
-                                color: Color(
-                                  0xff53B175,
-                                ),
+                                color: ColorAssets.green,
                               ),
                               child: Icon(
                                 Icons.add,

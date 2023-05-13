@@ -3,12 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nectaar/model/product_model.dart';
+import 'package:nectaar/view/components/groceries_card.dart';
 import 'package:nectaar/view/components/product_card.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
 
-class ExclusiveOffer extends StatelessWidget {
-  ExclusiveOffer({required this.category, Key? key}) : super(key: key);
+class Groceries extends StatelessWidget {
+  Groceries({required this.category, Key? key}) : super(key: key);
   String? category;
 
   @override
@@ -45,21 +46,19 @@ class ExclusiveOffer extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 200.h,
+              height: 85.h,
               child: ListView.separated(
                 padding: EdgeInsetsDirectional.only(
                   start: 10.w,
                   end: 10.w,
                 ),
-                itemBuilder: (context, index) => ProductCard(
-                    product:
-                        cubit.productModel?.data?.product?[index] ?? Product()),
+                itemBuilder: (context, index) => GroceriesCard(),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 separatorBuilder: (context, index) => SizedBox(
                   width: 5.w,
                 ),
-                itemCount: cubit.productModel?.data?.product?.length ?? 0,
+                itemCount: 5,
               ),
             ),
           ],

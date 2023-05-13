@@ -4,18 +4,21 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nectaar/view_model/bloc/productDetails_cubit/product_cubit.dart';
-import 'package:nectaar/view_model/bloc/productDetails_cubit/product_state.dart';
+import 'package:nectaar/view/color/color_assets.dart';
+import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
+import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({Key? key}) : super(key: key);
+  final int id;
+
+  const ProductDetails({required this.id,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ProductCubit, ProductState>(
+    return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
-        var cubit = ProductCubit.get(context);
+        var cubit = HomeCubit.get(context);
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.transparent,
@@ -74,7 +77,9 @@ class ProductDetails extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              "Naturel Red Apple",
+                              "${cubit.productModel?.data?.product?[id].name}",
+                              //${cubit.currentProduct.name}
+                              // "Naturel Red Apple",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.sp,
@@ -99,9 +104,7 @@ class ProductDetails extends StatelessWidget {
                       Text(
                         "1kg, Price",
                         style: GoogleFonts.poppins(
-                          color: Color(
-                            0xff7C7C7C,
-                          ),
+                          color: ColorAssets.textGrey,
                         ),
                       ),
                       SizedBox(
@@ -224,9 +227,7 @@ class ProductDetails extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 3,
                               style: GoogleFonts.poppins(
-                                color: Color(
-                                  0xff7C7C7C,
-                                ),
+                                color: ColorAssets.textGrey,
                               ),
                             ),
                           ],
@@ -261,19 +262,15 @@ class ProductDetails extends StatelessWidget {
                             ratingWidget: RatingWidget(
                               full: Icon(
                                 Icons.star,
-                                color: Color(0xffF3603F),
+                                color: ColorAssets.red,
                               ),
                               half: Icon(
                                 Icons.star_half,
-                                color: Color(
-                                  0xffF3603F,
-                                ),
+                                color: ColorAssets.red,
                               ),
                               empty: Icon(
                                 Icons.star_border,
-                                color: Color(
-                                  0xffF3603F,
-                                ),
+                                color: ColorAssets.red,
                               ),
                             ),
                             onRatingUpdate: (rate) {
@@ -283,8 +280,11 @@ class ProductDetails extends StatelessWidget {
                           SizedBox(
                             width: 7.w,
                           ),
-                          Icon(
-                            FontAwesomeIcons.angleRight,
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              FontAwesomeIcons.angleRight,
+                            ),
                           ),
                         ],
                       ),
@@ -302,9 +302,7 @@ class ProductDetails extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(
-                                0XFF53B175,
-                              ),
+                              backgroundColor: ColorAssets.green,
                             ),
                             onPressed: () {},
                             child: Text(

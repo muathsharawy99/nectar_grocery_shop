@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view_model/bloc/signup_cubit/signup_cubit.dart';
 import 'package:nectaar/view_model/bloc/signup_cubit/signup_state.dart';
 
@@ -194,9 +195,7 @@ class SignUpScreen extends StatelessWidget {
                             ),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(
-                                  0XFF53B175,
-                                ),
+                                backgroundColor: ColorAssets.green,
                               ),
                               onPressed: () {
                                 cubit.register();
@@ -230,9 +229,7 @@ class SignUpScreen extends StatelessWidget {
                             child: Text(
                               "Login",
                               style: GoogleFonts.poppins(
-                                color: Color(
-                                  0xff53B175,
-                                ),
+                                color: ColorAssets.green,
                               ),
                             ),
                           ),

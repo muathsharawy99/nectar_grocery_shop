@@ -1,11 +1,11 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:math' as math;
 
 
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({Key? key}) : super(key: key);
+class GroceriesCard extends StatelessWidget {
+  const GroceriesCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,28 +16,21 @@ class CategoryCard extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       child: InkWell(
-        onTap: () {
-          // Navigation.push(
-          //   context,
-          //   ProductDetails(),
-          // );
-        },
+        onTap: () {},
         child: SizedBox(
-          height: 160.h,
-          width: 160.w,
+          width: 230.w,
           child: Card(
-            color: Color(randomColor).withOpacity(.2),
+            color: Color(randomColor).withOpacity(.5
+            ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 15.r,
               ),
-              side: BorderSide(
-                color: Color(randomColor),
-              ),
+              side: BorderSide.none
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.all(10.w),
-              child: Column(
+              child: Row(
                 children: [
                   Expanded(
                     flex: 3,
@@ -46,21 +39,22 @@ class CategoryCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
-                    width: double.infinity,
+                    width: 15.w,
                   ),
                   Expanded(
-                    flex: 1,
-                    child: Text(
-                      "Frash Fruits & Vegetable",
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.bold,
-                        height: 1,
-                      ),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    flex: 5,
+                    child: Wrap(
+                      children: [
+                        Text(
+                          "Bananas",
+                          style: GoogleFonts.poppins(
+                            fontSize: 18.sp,
+                            height: 1,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                      ],
                     ),
                   ),
                 ],

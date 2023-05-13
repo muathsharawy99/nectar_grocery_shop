@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view/screens/auth/login_screen.dart';
 import 'package:nectaar/view_model/navigation/navigation.dart';
 
@@ -87,9 +88,7 @@ class SelectLocationScreen extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(
-                          0XFF53B175,
-                        ),
+                        backgroundColor: ColorAssets.green,
                       ),
                       onPressed: () {
                         Navigation.pushAndReplacement(
