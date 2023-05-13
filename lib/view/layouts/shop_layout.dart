@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectaar/model/product_model.dart';
 import 'package:nectaar/view/components/banner.dart';
 import 'package:nectaar/view/components/exclusive_offer.dart';
 import 'package:nectaar/view/components/groceries.dart';
@@ -49,10 +50,7 @@ class ShopLayout extends StatelessWidget {
                 height: 10.h,
               ),
               SizedBox(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width - (35.w),
+                width: MediaQuery.of(context).size.width - (35.w),
                 child: TextFormField(
                   decoration: InputDecoration(
                     filled: true,
@@ -91,7 +89,9 @@ class ShopLayout extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              Groceries(category: "Groceries",)
+              Groceries(
+                category: "Groceries",
+              )
             ],
           ),
         ),

@@ -15,7 +15,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   static HomeCubit get(context) => BlocProvider.of<HomeCubit>(context);
   ProductModel? productModel;
-  Product? currentProduct;
   bool isFavorite = false;
   bool isVisible = false;
   int counter = 1;
