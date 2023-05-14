@@ -5,8 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nectaar/model/product_model.dart';
 import 'package:nectaar/view/components/groceries_card.dart';
 import 'package:nectaar/view/components/product_card.dart';
+import 'package:nectaar/view/screens/categoriesView_screen.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
+import 'package:nectaar/view_model/navigation/navigation.dart';
 
 class Groceries extends StatelessWidget {
   Groceries({required this.category, Key? key}) : super(key: key);
@@ -34,7 +36,9 @@ class Groceries extends StatelessWidget {
                   ),
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigation.push(context, CategoriesView());
+                    },
                     child: Text(
                       "See all",
                       style: GoogleFonts.poppins(
@@ -52,13 +56,15 @@ class Groceries extends StatelessWidget {
                   start: 10.w,
                   end: 10.w,
                 ),
-                itemBuilder: (context, index) => GroceriesCard(),
+                itemBuilder: (context, index) => GroceriesCard(
+                  category:  cubit.category?.data?.product?[index] ?? Product(),
+                ),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 separatorBuilder: (context, index) => SizedBox(
                   width: 5.w,
                 ),
-                itemCount: 5,
+                itemCount: cubit.category?.data?.product?.length ?? 0,
               ),
             ),
           ],

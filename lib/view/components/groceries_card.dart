@@ -3,9 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math' as math;
 
+import 'package:nectaar/model/product_model.dart';
+
 
 class GroceriesCard extends StatelessWidget {
-  const GroceriesCard({Key? key}) : super(key: key);
+  final Product? category;
+  const GroceriesCard({required this.category,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class GroceriesCard extends StatelessWidget {
                     child: Wrap(
                       children: [
                         Text(
-                          "Bananas",
+                          "${category?.name}",
                           style: GoogleFonts.poppins(
                             fontSize: 18.sp,
                             height: 1,

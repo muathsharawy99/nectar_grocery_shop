@@ -8,58 +8,61 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var cubit = HomeCubit.get(context);
-        return Scaffold(
-          body: SafeArea(
-            child: cubit.layouts[cubit.currentIndex],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            onTap: (index) => cubit.setCurrentIndex(index),
-            currentIndex: cubit.currentIndex,
-            unselectedItemColor: Colors.black,
-            selectedIconTheme: IconThemeData(
-              color: Colors.green,
+    return BlocProvider.value(
+      value: HomeCubit.get(context)..getAllProduct()..getAllCategories()..getAllCartProduct(),
+      child: BlocConsumer<HomeCubit, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var cubit = HomeCubit.get(context);
+          return Scaffold(
+            body: SafeArea(
+              child: cubit.layouts[cubit.currentIndex],
             ),
-            selectedItemColor: Colors.green,
-            showUnselectedLabels: true,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.store,
-                ),
-                label: "Shop",
+            bottomNavigationBar: BottomNavigationBar(
+              onTap: (index) => cubit.setCurrentIndex(index),
+              currentIndex: cubit.currentIndex,
+              unselectedItemColor: Colors.black,
+              selectedIconTheme: IconThemeData(
+                color: Colors.green,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.explore,
+              selectedItemColor: Colors.green,
+              showUnselectedLabels: true,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.store,
+                  ),
+                  label: "Shop",
                 ),
-                label: "Explore",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.shopping_cart,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.explore,
+                  ),
+                  label: "Explore",
                 ),
-                label: "Cart",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.favorite_border,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.shopping_cart,
+                  ),
+                  label: "Cart",
                 ),
-                label: "Favorite",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person_outline_outlined,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.favorite_border,
+                  ),
+                  label: "Favorite",
                 ),
-                label: "Account",
-              ),
-            ],
-          ),
-        );
-      },
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person_outline_outlined,
+                  ),
+                  label: "Account",
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

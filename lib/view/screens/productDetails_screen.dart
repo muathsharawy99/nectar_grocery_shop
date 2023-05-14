@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nectaar/model/product_model.dart';
 import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
@@ -16,15 +15,14 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider.value(
+      value: HomeCubit()..getProductById(id),
+      child: BlocConsumer<HomeCubit, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var cubit = HomeCubit.get(context);
 
-    return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var cubit = HomeCubit.get(context);
-
-        return BlocProvider.value(
-          value: HomeCubit()..getAllProduct(),
-          child: Scaffold(
+          return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -82,7 +80,7 @@ class ProductDetails extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                "${cubit.productModel?.data?.product?[id].name}",
+                                "${cubit.currentProduct?.name}",
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20.sp,
@@ -95,17 +93,17 @@ class ProductDetails extends StatelessWidget {
                               },
                               icon: cubit.isFavorite
                                   ? Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                              )
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                    )
                                   : Icon(
-                                Icons.favorite_border,
-                              ),
+                                      Icons.favorite_border,
+                                    ),
                             ),
                           ],
                         ),
                         Text(
-                          "1kg, Price",
+                          "Available : ${cubit.currentProduct?.quantity}",
                           style: GoogleFonts.poppins(
                             color: ColorAssets.textGrey,
                           ),
@@ -157,7 +155,7 @@ class ProductDetails extends StatelessWidget {
                             ),
                             Spacer(),
                             Text(
-                              "\$${cubit.remainer(cubit.counter)}",
+                              "\$${cubit.currentProduct?.price}",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.sp,
@@ -226,7 +224,7 @@ class ProductDetails extends StatelessWidget {
                                 height: 10.h,
                               ),
                               Text(
-                                "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
+                                "${cubit.currentProduct?.description}",
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                                 style: GoogleFonts.poppins(
@@ -307,7 +305,9 @@ class ProductDetails extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: ColorAssets.green,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                cubit.addToCart(cubit.counter);
+                              },
                               child: Text(
                                 "Add To Basket",
                                 style: GoogleFonts.poppins(),
@@ -321,9 +321,9 @@ class ProductDetails extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

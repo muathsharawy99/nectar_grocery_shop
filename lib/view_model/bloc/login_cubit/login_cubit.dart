@@ -1,15 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nectaar/model/user_model.dart';
 import 'package:nectaar/view_model/bloc/login_cubit/login_state.dart';
+import 'package:nectaar/view_model/local/shared_preferences/shared_preferences_key.dart';
 import 'package:nectaar/view_model/network/dio_helper/dio_helper.dart';
 import 'package:nectaar/view_model/network/dio_helper/end_points.dart';
+
+import '../../local/shared_preferences/shared_preferences.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(InitState());
 
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  UserModel? userModel;
 
   static LoginCubit get(context) => BlocProvider.of<LoginCubit>(context);
 
@@ -31,8 +36,16 @@ class LoginCubit extends Cubit<LoginState> {
     ).then(
       (value) {
         print(value.data["code"]);
-        print("Hi then");
-        emit(LoginSuccessState());
+        if(value.data['code'] == 200 || value.data['code'] == 201) {
+          userModel = UserModel.fromJson(value.data);
+          SharedPreference.set(SharedKeys.token, userModel?.token);
+          print(SharedPreference.get(SharedKeys.token));
+          print("Hi then");
+          emit(LoginSuccessState());
+        }else{
+          emit(LoginErrorState());
+          throw 'Error On Login';
+        }
       },
     ).catchError(
       (onError) {

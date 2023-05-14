@@ -103,7 +103,7 @@ class VerificationScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      //
+
                     ],
                   ),
                 ),

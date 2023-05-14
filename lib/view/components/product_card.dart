@@ -66,7 +66,8 @@ class ProductCard extends StatelessWidget {
                         Align(
                           alignment: AlignmentDirectional.centerStart,
                           child: Text(
-                            "7pcs, Price",
+                            "Available : ${product.quantity}",
+                            // "7pcs, Price",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w300,
                               fontSize: 13.sp,

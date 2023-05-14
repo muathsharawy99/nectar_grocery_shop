@@ -8,10 +8,10 @@ import 'package:nectaar/view_model/bloc/signup_cubit/signup_cubit.dart';
 import 'package:nectaar/view_model/network/dio_helper/dio_helper.dart';
 import 'view_model/local/shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreference.initShared();
-  DioHelper.init();
+  await SharedPreference.initShared();
+  await DioHelper.init();
   runApp(const MyApp());
 }
 
@@ -29,9 +29,8 @@ class MyApp extends StatelessWidget {
           create: (context) => LoginCubit(),
         ),
         BlocProvider(
-          create: (context) => HomeCubit(),
+          create: (context) => HomeCubit()..getAllProduct()..getAllCategories()..getAllCartProduct(),
         ),
-
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
