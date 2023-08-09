@@ -88,7 +88,7 @@ class SignUpScreen extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontSize: 15.sp,
                             ),
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                               Icons.task_alt,
                             )),
                         keyboardType: TextInputType.emailAddress,
@@ -105,10 +105,10 @@ class SignUpScreen extends StatelessWidget {
                               cubit.obsecurePassword();
                             },
                             icon: cubit.secure == true
-                                ? Icon(
+                                ? const Icon(
                                     Icons.visibility_off,
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.visibility,
                                   ),
                           ),
@@ -126,7 +126,7 @@ class SignUpScreen extends StatelessWidget {
                         children: [
                           RichText(
                             textScaleFactor: 1,
-                            textHeightBehavior: TextHeightBehavior(
+                            textHeightBehavior: const TextHeightBehavior(
                                 applyHeightToFirstAscent: !true),
                             text: TextSpan(
                               text: "By continuing you agree to our ",

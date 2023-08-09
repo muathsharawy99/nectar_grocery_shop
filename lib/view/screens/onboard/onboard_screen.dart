@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nectaar/view/color/color_assets.dart';
 import 'package:nectaar/view/screens/auth/login_screen.dart';
-import 'package:nectaar/view/screens/auth/signin_screen.dart';
 import 'package:nectaar/view_model/navigation/navigation.dart';
 
 class OnboardScreen extends StatelessWidget {
@@ -72,7 +71,7 @@ class OnboardScreen extends StatelessWidget {
                       onPressed: () {
                         Navigation.pushAndReplacement(
                           context,
-                          LoginScreen(),
+                          const LoginScreen(),
                         );
                       },
                       child: Text(

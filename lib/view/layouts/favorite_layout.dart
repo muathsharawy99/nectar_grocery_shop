@@ -26,13 +26,13 @@ class FavoriteLayout extends StatelessWidget {
           SizedBox(
             height: 15.h,
           ),
-          Divider(
+          const Divider(
             thickness: 3,
           ),
           ListView.separated(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemBuilder: (context, index) => FavoriteBar(),
+            itemBuilder: (context, index) => const FavoriteBar(),
             separatorBuilder: (context, index) => Divider(
               thickness: 2,
               indent: 10.w,
@@ -40,7 +40,7 @@ class FavoriteLayout extends StatelessWidget {
             ),
             itemCount: 5,
           ),
-          Divider(
+          const Divider(
             thickness: 3,
           ),
           SizedBox(

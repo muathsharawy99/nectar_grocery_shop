@@ -48,7 +48,7 @@ class AccountLayout extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.mode_edit_outlined,
                                 color: Colors.green,
                               ),
@@ -75,12 +75,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.shopping_bag_outlined,
                     color: Colors.black,
                   ),
-                  title: Text("Orders"),
-                  trailing: Icon(
+                  title: const Text("Orders"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -91,12 +91,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.credit_card_sharp,
                     color: Colors.black,
                   ),
-                  title: Text("My Details"),
-                  trailing: Icon(
+                  title: const Text("My Details"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -107,12 +107,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.location_on_outlined,
                     color: Colors.black,
                   ),
-                  title: Text("Delivery Address"),
-                  trailing: Icon(
+                  title: const Text("Delivery Address"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -123,12 +123,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.credit_card_sharp,
                     color: Colors.black,
                   ),
-                  title: Text("Payment Methods"),
-                  trailing: Icon(
+                  title: const Text("Payment Methods"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -139,12 +139,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.airplane_ticket_rounded,
                     color: Colors.black,
                   ),
-                  title: Text("Promo Code"),
-                  trailing: Icon(
+                  title: const Text("Promo Code"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -155,12 +155,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.notifications,
                     color: Colors.black,
                   ),
-                  title: Text("Notifications"),
-                  trailing: Icon(
+                  title: const Text("Notifications"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -171,12 +171,12 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.help,
                     color: Colors.black,
                   ),
-                  title: Text("Help"),
-                  trailing: Icon(
+                  title: const Text("Help"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -187,15 +187,15 @@ class AccountLayout extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: RotatedBox(
+                  leading: const RotatedBox(
                     quarterTurns: 190,
                     child: Icon(
                       Icons.info,
                       color: Colors.black,
                     ),
                   ),
-                  title: Text("About"),
-                  trailing: Icon(
+                  title: const Text("About"),
+                  trailing: const Icon(
                     Icons.chevron_right_sharp,
                     color: Colors.black,
                   ),
@@ -219,7 +219,7 @@ class AccountLayout extends StatelessWidget {
                         backgroundColor: ColorAssets.silver),
                     onPressed: () {
                       SharedPreference.clear();
-                      Navigation.pushAndReplacement(context, LoginScreen());
+                      Navigation.pushAndReplacement(context, const LoginScreen());
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

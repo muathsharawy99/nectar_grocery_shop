@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nectaar/model/product_model.dart';
 import 'package:nectaar/view/components/groceries_card.dart';
-import 'package:nectaar/view/components/product_card.dart';
 import 'package:nectaar/view/screens/categoriesView_screen.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
@@ -34,10 +33,10 @@ class Groceries extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold, fontSize: 22.sp),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   TextButton(
                     onPressed: () {
-                      Navigation.push(context, CategoriesView());
+                      Navigation.push(context, const CategoriesView());
                     },
                     child: Text(
                       "See all",

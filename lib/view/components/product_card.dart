@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                 15.r,
               ),
-              side: BorderSide(
+              side: const BorderSide(
                 color: Color(0xffE2E2E2),
               ),
             ),
@@ -54,7 +54,7 @@ class ProductCard extends StatelessWidget {
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "${product.name ?? "Organic Bananas"}",
+                          product.name ?? "Organic Bananas",
                           style: GoogleFonts.poppins(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class ProductCard extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Container(
                               padding: EdgeInsetsDirectional.all(7.w),
                               decoration: BoxDecoration(
@@ -91,7 +91,7 @@ class ProductCard extends StatelessWidget {
                                 ),
                                 color: ColorAssets.green,
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.add,
                                 color: Colors.white,
                               ),

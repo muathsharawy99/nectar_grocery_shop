@@ -10,7 +10,7 @@ class TextFieldCustom {
         ),
         labelText: label,
         disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(strokeAlign: BorderSide.strokeAlignOutside,color: Colors.blue),
+            borderSide: const BorderSide(strokeAlign: BorderSide.strokeAlignOutside,color: Colors.blue),
             borderRadius: BorderRadius.circular(borderRadius.r,)
         ),
 

@@ -43,7 +43,7 @@ class CartLayout extends StatelessWidget {
                   width: double.infinity,
                   child: ListView.separated(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => CartItem(
                             cartProduct:
                                 cubit.cartProduct?.product?[index] ??

@@ -22,12 +22,12 @@ class HomeScreen extends StatelessWidget {
               onTap: (index) => cubit.setCurrentIndex(index),
               currentIndex: cubit.currentIndex,
               unselectedItemColor: Colors.black,
-              selectedIconTheme: IconThemeData(
+              selectedIconTheme: const IconThemeData(
                 color: Colors.green,
               ),
               selectedItemColor: Colors.green,
               showUnselectedLabels: true,
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.store,

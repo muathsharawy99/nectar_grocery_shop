@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nectaar/model/product_model.dart';
 import 'package:nectaar/view/components/category_card.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
@@ -20,14 +19,14 @@ class CategoriesView extends StatelessWidget {
           var cubit = HomeCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              title: Text("Categories",style: TextStyle(color: Colors.black),),centerTitle: true,
+              title: const Text("Categories",style: TextStyle(color: Colors.black),),centerTitle: true,
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.black,
                 ),
@@ -35,7 +34,7 @@ class CategoriesView extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.file_upload_outlined,
                     color: Colors.black,
                   ),
@@ -54,7 +53,7 @@ class CategoriesView extends StatelessWidget {
                     ),
                     GridView.count(
                       childAspectRatio: 3 / 3,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       crossAxisCount: 2,
                       children: List.generate(

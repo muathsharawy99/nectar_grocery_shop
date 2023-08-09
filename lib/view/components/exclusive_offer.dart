@@ -31,7 +31,7 @@ class ExclusiveOffer extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold, fontSize: 22.sp),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   TextButton(
                     onPressed: () {},
                     child: Text(

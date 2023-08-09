@@ -28,11 +28,11 @@ class HomeCubit extends Cubit<HomeState> {
   int counter = 1;
   num? price;
   List<Widget> layouts = [
-    ShopLayout(),
-    ExploreLayout(),
-    CartLayout(),
-    FavoriteLayout(),
-    AccountLayout()
+    const ShopLayout(),
+    const ExploreLayout(),
+    const CartLayout(),
+    const FavoriteLayout(),
+    const AccountLayout()
   ];
   int currentIndex = 0;
 
@@ -84,10 +84,10 @@ class HomeCubit extends Cubit<HomeState> {
     });
   }
 
-  Future<void> addToCart(int quantity) async {
+  Future<void> addToCart(int id,int quantity) async {
     emit(AddToCartLoadingState());
     DioHelper.get(
-            endPoint: EndPoints.addToCart,data: {"quantity" : quantity},
+            endPoint: "${EndPoints.addToCart}/$id",data: {"quantity" : quantity},
             token: SharedPreference.get(SharedKeys.token))
         .then((value) {
       getAllCartProduct();
@@ -135,8 +135,9 @@ class HomeCubit extends Cubit<HomeState> {
     if (counter > 1) {
       counter--;
       emit(DecrementCounter());
-    } else
+    } else {
       print("Minimum Quantity");
+    }
   }
 
   void changeFavorite() {

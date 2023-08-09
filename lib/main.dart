@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nectaar/view/screens/splash/splash_screen.dart';
+import 'package:nectaar/view_model/bloc/bloc_observer/bloc_observer.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 import 'package:nectaar/view_model/bloc/login_cubit/login_cubit.dart';
 import 'package:nectaar/view_model/bloc/signup_cubit/signup_cubit.dart';
@@ -10,6 +11,7 @@ import 'view_model/local/shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   await SharedPreference.initShared();
   await DioHelper.init();
   runApp(const MyApp());
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             home: SplashScreen(),
           );

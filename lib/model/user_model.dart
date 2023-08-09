@@ -20,10 +20,10 @@ class UserModel {
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
-    data['token'] = this.token;
-    data['message'] = this.message;
-    data['code'] = this.code;
-    data['errors'] = this.errors;
+    data['token'] = token;
+    data['message'] = message;
+    data['code'] = code;
+    data['errors'] = errors;
     return data;
   }
 }
@@ -47,11 +47,11 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['email'] = this.email;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }

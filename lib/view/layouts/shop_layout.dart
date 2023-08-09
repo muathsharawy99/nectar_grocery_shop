@@ -1,13 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nectaar/model/product_model.dart';
 import 'package:nectaar/view/components/banner.dart';
 import 'package:nectaar/view/components/exclusive_offer.dart';
 import 'package:nectaar/view/components/groceries.dart';
-import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 
 class ShopLayout extends StatelessWidget {
   const ShopLayout({Key? key}) : super(key: key);
@@ -22,7 +19,7 @@ class ShopLayout extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               width: double.infinity,
             ),
             Image.asset(
@@ -33,7 +30,7 @@ class ShopLayout extends StatelessWidget {
             SizedBox(
               height: 15.h,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
@@ -52,7 +49,7 @@ class ShopLayout extends StatelessWidget {
               child: TextFormField(
                 decoration: InputDecoration(
                   filled: true,
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.search,
                   ),
                   border: OutlineInputBorder(
@@ -61,7 +58,7 @@ class ShopLayout extends StatelessWidget {
                   ),
                   hintText: "Search Store",
                   hintStyle: GoogleFonts.poppins(),
-                  fillColor: Color(0xffF2F3F2),
+                  fillColor: const Color(0xffF2F3F2),
                   prefixIconColor: Colors.black,
                 ),
               ),
@@ -70,7 +67,7 @@ class ShopLayout extends StatelessWidget {
               height: 10.h,
             ),
             CarouselSlider(
-              items: [
+              items: const [
                 Baner(),
                 Baner(),
                 Baner(),

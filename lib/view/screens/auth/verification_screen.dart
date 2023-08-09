@@ -22,7 +22,7 @@ class VerificationScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new,
             color: Colors.black,
           ),
@@ -76,7 +76,7 @@ class VerificationScreen extends StatelessWidget {
                         },
                         onCompleted: (v) {
                           if (v == "1234") {
-                            Navigation.push(context, SelectLocationScreen());
+                            Navigation.push(context, const SelectLocationScreen());
                           } else {
                             Fluttertoast.showToast(
                               msg: "Enter from 1 to 4",
@@ -94,11 +94,11 @@ class VerificationScreen extends StatelessWidget {
                         children: [
                           Countdown(
                             seconds: 90,
-                            interval: Duration(seconds: 1),
+                            interval: const Duration(seconds: 1),
                             build: (context, double time) => Text(
                               (time < 60)
                                   ? "0 : ${time.toInt()}"
-                                  : "${(time / 60).toInt()} : ${(((time / 60) - ((time / 60).toInt())) * 60).toInt()}",
+                                  : "${time ~/ 60} : ${(((time / 60) - (time ~/ 60)) * 60).toInt()}",
                             ),
                           )
                         ],
@@ -114,11 +114,11 @@ class VerificationScreen extends StatelessWidget {
                   onPressed: () {
                     Countdown(
                       seconds: 90,
-                      interval: Duration(seconds: 1),
+                      interval: const Duration(seconds: 1),
                       build: (context, double time) => Text(
                         (time < 60)
                             ? "0 : ${time.toInt()}"
-                            : "${(time / 60).toInt()} : ${(((time / 60) - ((time / 60).toInt())) * 60).toInt()}",
+                            : "${time ~/ 60} : ${(((time / 60) - (time ~/ 60)) * 60).toInt()}",
                       ),
                     );
                   },
@@ -137,11 +137,11 @@ class VerificationScreen extends StatelessWidget {
                       Countdown(
                         seconds: 90,
                         onFinished: () {},
-                        interval: Duration(seconds: 1),
+                        interval: const Duration(seconds: 1),
                         build: (context, double time) => Text(
                           (time < 60)
                               ? "0 : ${time.toInt()}"
-                              : "${(time / 60).toInt()} : ${(((time / 60) - ((time / 60).toInt())) * 60).toInt()}",
+                              : "${time ~/ 60} : ${(((time / 60) - (time ~/ 60)) * 60).toInt()}",
                         ),
                       ),
                     ],
@@ -162,11 +162,11 @@ class VerificationScreen extends StatelessWidget {
           onPressed: () {
             Navigation.push(
               context,
-              SelectLocationScreen(),
+              const SelectLocationScreen(),
             );
           },
           backgroundColor: ColorAssets.green,
-          child: Icon(
+          child: const Icon(
             Icons.arrow_forward_ios,
           ),
         ),

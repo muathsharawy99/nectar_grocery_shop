@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
         if (state is LoginSuccessState) {
           Navigation.push(
             context,
-            HomeScreen(),
+            const HomeScreen(),
           );
         }
       },
@@ -102,10 +102,10 @@ class LoginScreen extends StatelessWidget {
                                 cubit.obsecurePassword();
                               },
                               icon: cubit.secure == true
-                                  ? Icon(
+                                  ? const Icon(
                                       Icons.visibility_off,
                                     )
-                                  : Icon(
+                                  : const Icon(
                                       Icons.visibility,
                                     ),
                             ),
@@ -172,7 +172,7 @@ class LoginScreen extends StatelessWidget {
                               onPressed: () {
                                 Navigation.push(
                                   context,
-                                  SignUpScreen(),
+                                  const SignUpScreen(),
                                 );
                               },
                               child: Text(

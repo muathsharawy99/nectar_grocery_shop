@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       backgroundColor: ColorAssets.green,
-      nextScreen: SharedPreference.get(SharedKeys.token) == null ? OnboardScreen() : HomeScreen(),
+      nextScreen: SharedPreference.get(SharedKeys.token) == null ? const OnboardScreen() : const HomeScreen(),
       splash: SplashCustom(),
       splashIconSize: 50.w,
       centered: true,

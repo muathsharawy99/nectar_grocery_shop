@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nectaar/model/product_model.dart';
-import 'package:nectaar/view/components/category_card.dart';
 import 'package:nectaar/view/components/product_card.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
 import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
@@ -39,7 +38,7 @@ class ExploreLayout extends StatelessWidget {
                 TextFormField(
                   decoration: InputDecoration(
                     filled: true,
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.search,
                     ),
                     border: OutlineInputBorder(
@@ -48,7 +47,7 @@ class ExploreLayout extends StatelessWidget {
                     ),
                     hintText: "Search Store",
                     hintStyle: GoogleFonts.poppins(),
-                    fillColor: Color(0xffF2F3F2),
+                    fillColor: const Color(0xffF2F3F2),
                     prefixIconColor: Colors.black,
                   ),
                 ),
@@ -57,7 +56,7 @@ class ExploreLayout extends StatelessWidget {
                 ),
                 GridView.count(
                   childAspectRatio: 3 / 4,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   crossAxisCount: 2,
                   children: List.generate(

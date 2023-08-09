@@ -52,10 +52,10 @@ class CartItem extends StatelessWidget {
                         )
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.cancel),
+                      icon: const Icon(Icons.cancel),
                     ),
                   ],
                 ),
@@ -65,7 +65,7 @@ class CartItem extends StatelessWidget {
                       onPressed: () {
                         cubit.decrementCounter();
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.minus,
                       ),
                     ),
@@ -76,7 +76,7 @@ class CartItem extends StatelessWidget {
                         border: Border.all(
                           strokeAlign: BorderSide.strokeAlignOutside,
                           width: 2.w,
-                          color: Color(
+                          color: const Color(
                             0xffE2E2E2,
                           ),
                         ),
@@ -97,11 +97,11 @@ class CartItem extends StatelessWidget {
                       onPressed: () {
                         cubit.incrementCounter();
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.plus,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       "\$${cartProduct?.price}",
                       // ${cubit.currentProduct?.price}

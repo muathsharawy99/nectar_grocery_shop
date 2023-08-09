@@ -11,7 +11,7 @@ import 'package:nectaar/view_model/bloc/home_cubit/home_state.dart';
 class ProductDetails extends StatelessWidget {
   final int id;
 
-  ProductDetails({required this.id, Key? key}) : super(key: key);
+  const ProductDetails({required this.id, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class ProductDetails extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.black,
                 ),
@@ -38,7 +38,7 @@ class ProductDetails extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.file_upload_outlined,
                     color: Colors.black,
                   ),
@@ -60,7 +60,7 @@ class ProductDetails extends StatelessWidget {
                           30.r,
                         ),
                       ),
-                      color: Color(
+                      color: const Color(
                         0xffF2F3F2,
                       ),
                     ),
@@ -92,11 +92,11 @@ class ProductDetails extends StatelessWidget {
                                 cubit.changeFavorite();
                               },
                               icon: cubit.isFavorite
-                                  ? Icon(
+                                  ? const Icon(
                                       Icons.favorite,
                                       color: Colors.red,
                                     )
-                                  : Icon(
+                                  : const Icon(
                                       Icons.favorite_border,
                                     ),
                             ),
@@ -117,7 +117,7 @@ class ProductDetails extends StatelessWidget {
                               onPressed: () {
                                 cubit.decrementCounter();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.minus,
                               ),
                             ),
@@ -128,7 +128,7 @@ class ProductDetails extends StatelessWidget {
                                 border: Border.all(
                                   strokeAlign: BorderSide.strokeAlignOutside,
                                   width: 2.w,
-                                  color: Color(
+                                  color: const Color(
                                     0xffE2E2E2,
                                   ),
                                 ),
@@ -149,11 +149,11 @@ class ProductDetails extends StatelessWidget {
                               onPressed: () {
                                 cubit.incrementCounter();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.plus,
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Text(
                               "\$${cubit.currentProduct?.price}",
                               style: GoogleFonts.poppins(
@@ -190,7 +190,7 @@ class ProductDetails extends StatelessWidget {
                                     onPressed: () {
                                       cubit.changeVisibility();
                                     },
-                                    icon: Icon(
+                                    icon: const Icon(
                                       FontAwesomeIcons.angleRight,
                                     ),
                                   ),
@@ -214,7 +214,7 @@ class ProductDetails extends StatelessWidget {
                                     onPressed: () {
                                       cubit.changeVisibility();
                                     },
-                                    icon: Icon(
+                                    icon: const Icon(
                                       FontAwesomeIcons.angleDown,
                                     ),
                                   ),
@@ -283,7 +283,7 @@ class ProductDetails extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.angleRight,
                               ),
                             ),
@@ -306,7 +306,7 @@ class ProductDetails extends StatelessWidget {
                                 backgroundColor: ColorAssets.green,
                               ),
                               onPressed: () {
-                                cubit.addToCart(cubit.counter);
+                                cubit.addToCart(cubit.counter,id);
                               },
                               child: Text(
                                 "Add To Basket",

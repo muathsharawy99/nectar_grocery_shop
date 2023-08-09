@@ -55,7 +55,7 @@ class SigninScreen extends StatelessWidget {
                     onChanged: (v) {
                       print(v);
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: "Mobile Number",
                     ),
                   ),
@@ -94,7 +94,7 @@ class SigninScreen extends StatelessWidget {
                                 "assets/google.png",
                                 height: 23.h,
                               ),
-                              Text(
+                              const Text(
                                 "Continue with Google",
                               ),
                             ],
@@ -123,7 +123,7 @@ class SigninScreen extends StatelessWidget {
                                 "assets/facebook.png",
                                 height: 25.h,
                               ),
-                              Text(
+                              const Text(
                                 "Continue with Facebook",
                               ),
                             ],

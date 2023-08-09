@@ -23,7 +23,7 @@ class NumberScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new,
             color: Colors.black,
           ),
@@ -71,11 +71,11 @@ class NumberScreen extends StatelessWidget {
                           textColor: Colors.white,
                         );
                       } else {
-                        return null;
+                        return;
                       }
                     },
                     initialCountryCode: "EG",
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: "Mobile Number",
                     ),
                   ),
@@ -93,11 +93,11 @@ class NumberScreen extends StatelessWidget {
           onPressed: () {
             Navigation.push(
               context,
-              VerificationScreen(),
+              const VerificationScreen(),
             );
           },
           backgroundColor: ColorAssets.green,
-          child: Icon(
+          child: const Icon(
             Icons.arrow_forward_ios,
           ),
         ),

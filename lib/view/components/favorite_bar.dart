@@ -34,12 +34,12 @@ class FavoriteBar extends StatelessWidget {
               width: 91.w,
               child: Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "\$2.99",
                     style: GoogleFonts.poppins(),
                   ),
-                  Icon(
+                  const Icon(
                     FontAwesomeIcons.angleRight,
                   ),
                 ],

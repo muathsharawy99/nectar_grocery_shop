@@ -20,12 +20,14 @@ class SignupCubit extends Cubit<SignupState> {
     emit(ObsecureState());
   }
 
-  void register() {
+  void register  () async {
     emit(SignUpLoadingState());
     DioHelper.post(endPoint: EndPoints.register, data: {
+      "name": usernameController.text,
       "email": emailController.text,
       "password": passwordController.text
     }).then((value) {
+
       print("Done");
       emit(
         SignUpSuccessState(),
