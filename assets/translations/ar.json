@@ -1,0 +1,109 @@
+{
+  "lang": "ar",
+  "currency": "$",
+  "app_name": "نكتار",
+  "poor_connection_check_the_quality_of_the_internet": "اتصال ضعيف. تحقق من جودة الإنترنت",
+  "please_check_your_internet_connection": "يرجى التحقق من اتصال الإنترنت الخاص بك",
+  "something_went_wrong_please_try_again": "حدث خطأ ما حاول مرة أخرى.",
+  "static": {
+    "loading": "جاري التحميل",
+    "optional": "اختياري",
+    "refresh": "تحديث",
+    "this_field": "هذا الحقل"
+  },
+  "validations": {
+    "empty_field": "حقل مطلوب",
+    "email_invalid": "بريد إلكتروني غير صالح",
+    "phone_digits_only": "رقم الموبايل يجب أن يحتوي على أرقام فقط.",
+    "there_is_no_data": "لا يوجد بيانات الآن",
+    "wrong_otp": "يرجى إدخال الرمز"
+  },
+  "onboarding": {
+    "title": "مرحبًا بك\nفي متجرنا",
+    "subtitle": "احصل على مشترياتك في ساعة واحدة فقط",
+    "get_started": "ابدأ الآن"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "login_subtitle": "أدخل بريدك الإلكتروني وكلمة المرور",
+    "sign_up": "إنشاء حساب",
+    "sign_up_subtitle": "أدخل بياناتك للمتابعة",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "no_account": "ليس لديك حساب؟",
+    "have_account": "لديك حساب بالفعل؟",
+    "terms_prefix": "بالمتابعة فإنك توافق على ",
+    "terms_of_service": "شروط الخدمة",
+    "terms_and": " و",
+    "privacy_policy": "سياسة الخصوصية.",
+    "registered": "تم إنشاء حسابك",
+    "phone_sign_in_title": "احصل على مشترياتك\nمع نكتار",
+    "mobile_number": "رقم الموبايل",
+    "social_title": "أو سجّل عبر وسائل التواصل",
+    "continue_with_google": "المتابعة باستخدام Google",
+    "continue_with_facebook": "المتابعة باستخدام Facebook",
+    "enter_mobile_number": "أدخل رقم الموبايل",
+    "demo_number_hint": "أدخل الأرقام من 0 إلى 9",
+    "enter_code": "أدخل الرمز المكوّن من 4 أرقام",
+    "demo_code_hint": "أدخل الأرقام من 1 إلى 4",
+    "resend_code": "إعادة إرسال الرمز",
+    "select_location_title": "اختر موقعك",
+    "select_location_subtitle": "فعّل الموقع لتبقى على اطلاع بما يحدث في منطقتك",
+    "your_zone": "منطقتك",
+    "submit": "إرسال"
+  },
+  "layout": {
+    "shop": "المتجر",
+    "explore": "استكشف",
+    "cart": "السلة",
+    "favorite": "المفضلة",
+    "account": "حسابي"
+  },
+  "shop": {
+    "location": "دكا، باناسري",
+    "search_store": "ابحث في المتجر",
+    "see_all": "عرض الكل",
+    "exclusive_offer": "عروض حصرية",
+    "categories": "الأقسام",
+    "banner_title": "خضروات طازجة",
+    "banner_subtitle": "خصم حتى 40%"
+  },
+  "explore": {
+    "title": "ابحث عن المنتجات"
+  },
+  "cart": {
+    "title": "سلتي",
+    "unit_price": "1 كجم، السعر",
+    "empty": "سلتك فارغة"
+  },
+  "favorite": {
+    "title": "المفضلة",
+    "sample_name": "زنجبيل",
+    "sample_unit": "250 جم",
+    "add_all_to_cart": "أضف الكل إلى السلة"
+  },
+  "account": {
+    "orders": "الطلبات",
+    "my_details": "بياناتي",
+    "delivery_address": "عنوان التوصيل",
+    "payment_methods": "طرق الدفع",
+    "promo_code": "كود الخصم",
+    "notifications": "الإشعارات",
+    "help": "المساعدة",
+    "about": "عن التطبيق",
+    "logout": "تسجيل الخروج"
+  },
+  "categories": {
+    "title": "الأقسام"
+  },
+  "product": {
+    "default_name": "موز عضوي",
+    "available": "المتوفر : {}",
+    "detail": "تفاصيل المنتج",
+    "review": "التقييم",
+    "add_to_basket": "أضف إلى السلة",
+    "added_to_basket": "تمت الإضافة إلى السلة"
+  }
+}

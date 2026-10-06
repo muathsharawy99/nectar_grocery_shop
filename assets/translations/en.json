@@ -1,0 +1,109 @@
+{
+  "lang": "en",
+  "currency": "$",
+  "app_name": "Nectar",
+  "poor_connection_check_the_quality_of_the_internet": "Poor connection. Check the quality of the internet",
+  "please_check_your_internet_connection": "Please check your internet connection",
+  "something_went_wrong_please_try_again": "Something went wrong, please try again.",
+  "static": {
+    "loading": "Loading",
+    "optional": "Optional",
+    "refresh": "Refresh",
+    "this_field": "This Field"
+  },
+  "validations": {
+    "empty_field": "Field is required",
+    "email_invalid": "Invalid email address",
+    "phone_digits_only": "The mobile number must contain digits only.",
+    "there_is_no_data": "There is no data available",
+    "wrong_otp": "Please enter the code"
+  },
+  "onboarding": {
+    "title": "Welcome\nto our store",
+    "subtitle": "Get your groceries in as fast as one hour",
+    "get_started": "Get Started"
+  },
+  "auth": {
+    "login": "Login",
+    "login_subtitle": "Enter your email and password",
+    "sign_up": "Sign Up",
+    "sign_up_subtitle": "Enter your credentials to continue",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot Password?",
+    "no_account": "Don’t have an account?",
+    "have_account": "Already have an account?",
+    "terms_prefix": "By continuing you agree to our ",
+    "terms_of_service": "Terms of Service",
+    "terms_and": " and ",
+    "privacy_policy": "Privacy Policy.",
+    "registered": "Your account was created",
+    "phone_sign_in_title": "Get your groceries\nwith nectar",
+    "mobile_number": "Mobile Number",
+    "social_title": "Or connect with social media",
+    "continue_with_google": "Continue with Google",
+    "continue_with_facebook": "Continue with Facebook",
+    "enter_mobile_number": "Enter your mobile number",
+    "demo_number_hint": "Enter from 0 to 9",
+    "enter_code": "Enter your 4-digit code",
+    "demo_code_hint": "Enter from 1 to 4",
+    "resend_code": "Resend Code",
+    "select_location_title": "Select Your Location",
+    "select_location_subtitle": "Switch on your location to stay in tune with what’s happening in your area",
+    "your_zone": "Your Zone",
+    "submit": "Submit"
+  },
+  "layout": {
+    "shop": "Shop",
+    "explore": "Explore",
+    "cart": "Cart",
+    "favorite": "Favorite",
+    "account": "Account"
+  },
+  "shop": {
+    "location": "Dhaka, Banassre",
+    "search_store": "Search Store",
+    "see_all": "See all",
+    "exclusive_offer": "Exclusive Offer",
+    "categories": "Categories",
+    "banner_title": "Fresh Vegetables",
+    "banner_subtitle": "Get Up To 40% OFF"
+  },
+  "explore": {
+    "title": "Find Products"
+  },
+  "cart": {
+    "title": "My Cart",
+    "unit_price": "1kg, Price",
+    "empty": "Your cart is empty"
+  },
+  "favorite": {
+    "title": "Favorite",
+    "sample_name": "Ginger",
+    "sample_unit": "250gm",
+    "add_all_to_cart": "Add All To Cart"
+  },
+  "account": {
+    "orders": "Orders",
+    "my_details": "My Details",
+    "delivery_address": "Delivery Address",
+    "payment_methods": "Payment Methods",
+    "promo_code": "Promo Code",
+    "notifications": "Notifications",
+    "help": "Help",
+    "about": "About",
+    "logout": "Log Out"
+  },
+  "categories": {
+    "title": "Categories"
+  },
+  "product": {
+    "default_name": "Organic Bananas",
+    "available": "Available : {}",
+    "detail": "Product Detail",
+    "review": "Review",
+    "add_to_basket": "Add To Basket",
+    "added_to_basket": "Added to your basket"
+  }
+}

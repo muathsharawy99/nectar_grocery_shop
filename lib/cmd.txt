@@ -1,0 +1,40 @@
+  
+  fluttergen -c pubspec.yaml; 
+  fvm 
+  dart run easy_localization:generate -S assets/translations -f keys -O lib/gen -o locale_keys.g.dart
+  
+
+  dart run build_runner build
+
+
+  adb pair 10.0.12.12:38837
+
+
+
+
+  fluttergen -c pubspec.yaml 
+
+
+  flutter build apk --release --target-platform android-arm --analyze-size
+
+
+  ./gradlew signingReport
+
+fvm flutter clean;fvm flutter pub get;fvm flutter build apk
+
+
+
+git config --global user.email muath0sharawy@gmail.com ; git config --global user.name muathsharawy99
+      git add .;
+      git commit -m "finish app design"
+      ;git push;
+
+
+
+      flutter clean;flutter pub  get; flutter build apk --split-per-abi;
+
+
+
+flutter clean; flutter pub  get; cd ios; pod repo update; pod install; cd ..; flutter pub get; flutter build apk --release;
+
+flutter build apk --split-per-abi;

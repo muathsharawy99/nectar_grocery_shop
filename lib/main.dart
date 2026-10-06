@@ -1,47 +1,91 @@
+import 'dart:ui';
+
+import 'package:easy_localization/easy_localization.dart' as lang;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nectaar/view/screens/splash/splash_screen.dart';
-import 'package:nectaar/view_model/bloc/bloc_observer/bloc_observer.dart';
-import 'package:nectaar/view_model/bloc/home_cubit/home_cubit.dart';
-import 'package:nectaar/view_model/bloc/login_cubit/login_cubit.dart';
-import 'package:nectaar/view_model/bloc/signup_cubit/signup_cubit.dart';
-import 'package:nectaar/view_model/network/dio_helper/dio_helper.dart';
-import 'view_model/local/shared_preferences/shared_preferences.dart';
+
+import 'core/extensions/unified_extensions.dart';
+import 'core/services/bloc_observer.dart';
+import 'core/services/service_locator.dart';
+import 'core/services/shared_preference.dart';
+import 'core/utils/phoenix.dart';
+import 'core/utils/theme/light_theme.dart';
+import 'core/utils/unfocus.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = MyBlocObserver();
-  await SharedPreference.initShared();
-  await DioHelper.init();
-  runApp(const MyApp());
+  PlatformDispatcher.instance.onError = (error, stack) {
+    debugPrint('Uncaught error: $error');
+    debugPrintStack(stackTrace: stack);
+    return true;
+  };
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  await Future.wait([
+    lang.EasyLocalization.ensureInitialized(),
+    ScreenUtil.ensureScreenSize(),
+    CacheHelper.init(),
+  ]);
+
+  Bloc.observer = AppBlocObserver();
+  UserModel.i.get();
+  ServicesLocator().init();
+  runApp(const Nectar());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Nectar extends StatelessWidget {
+  const Nectar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => SignupCubit(),
-        ),
-        BlocProvider(
-          create: (context) => LoginCubit(),
-        ),
-        BlocProvider(
-          create: (context) => HomeCubit()..getAllProduct()..getAllCategories()..getAllCartProduct(),
-        ),
-      ],
+    return lang.EasyLocalization(
+      path: 'assets/translations',
+      saveLocale: true,
+      startLocale: const Locale('en'),
+      fallbackLocale: const Locale('en'),
+      supportedLocales: const [Locale('en'), Locale('ar')],
       child: ScreenUtilInit(
-        designSize: const Size(360, 690),
+        designSize: AppConstants.appSize,
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return const MaterialApp(
+          return MaterialApp(
+            title: 'Nectar',
+            themeMode: ThemeMode.light,
+            initialRoute: AppRoutes.init.initial,
+            routes: AppRoutes.init.appRoutes,
+            navigatorKey: navigator,
+            navigatorObservers: [appRouteObserver],
             debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            theme: LightTheme.getTheme(fontFamily: context.fontFamily),
+            builder: (context, child) {
+              ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
+                // Always dump the real error to the console; show Flutter's
+                // error widget in debug/profile and hide it only in release.
+                FlutterError.dumpErrorToConsole(errorDetails);
+                if (kReleaseMode) {
+                  return const SizedBox.shrink();
+                }
+                return ErrorWidget(errorDetails.exception);
+              };
+              return Phoenix(
+                child: MediaQuery(
+                  data: MediaQuery.of(
+                    context,
+                  ).copyWith(textScaler: TextScaler.linear(1.sp)),
+                  child: Unfocus(child: child ?? const SizedBox.shrink()),
+                ),
+              );
+            },
           );
         },
       ),
