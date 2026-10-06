@@ -10,14 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.9
-  cached_network_image: ^3.4.1
   dio: ^5.11.1
   easy_localization: ^3.0.8
   equatable: ^3.0.0
   flash: ^3.1.1
   flutter_bloc: ^9.1.1
   flutter_screenutil: ^5.9.3
-  flutter_svg: ^2.3.0
   get_it: ^9.3.0
   shared_preferences: ^2.5.5
 

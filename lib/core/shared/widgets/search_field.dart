@@ -7,15 +7,12 @@ import '../../extensions/unified_extensions.dart';
 
 /// Grey rounded "Search Store" field (shop and explore tabs).
 class SearchField extends StatelessWidget {
-  const SearchField({super.key, this.onChanged});
-
-  final ValueChanged<String>? onChanged;
+  const SearchField({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppField(
       hintText: LocaleKeys.shop_search_store.tr(),
-      onChanged: onChanged,
       margin: EdgeInsets.zero,
       radius: AppSize.borderRadius,
       borderColor: context.searchFieldColor,

@@ -64,7 +64,6 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       },
       builder: (context, state) => AuthScaffold(
-        reverse: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

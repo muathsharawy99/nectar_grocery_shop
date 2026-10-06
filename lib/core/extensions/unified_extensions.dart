@@ -1,6 +1,4 @@
 export './context_extensions.dart';
-export './double_extensions.dart';
-export './int_extensions.dart';
 export './string_extensions.dart';
 export './widget_extensions.dart';
 export './cubit_enums.dart';
@@ -10,11 +8,9 @@ export './../resources/resources.dart';
 export './../resources/dimensions_manager.dart';
 export './../resources/fonts_manager.dart';
 
-export './../shared/widgets/app_bar.dart';
 export './../shared/widgets/light_app_bar.dart';
 export './../shared/widgets/app_btn.dart';
 export './../shared/widgets/app_field.dart';
-export './../shared/widgets/app_sheet.dart';
 export './../shared/widgets/flash_helper.dart';
 export './../shared/widgets/error_widget.dart';
 export './../shared/widgets/loading.dart';
@@ -28,8 +24,6 @@ export './../shared/widgets/product_card.dart';
 export './../shared/routes/app_routes_fun.dart';
 export './../shared/routes/app_routes.dart';
 export './../shared/routes/routes.dart';
-export './../shared/models/json_parser.dart';
 export '../shared/models/user_model.dart';
-export '../shared/models/id_name_model.dart';
 export '../shared/models/product_model.dart';
 export '../shared/models/category_model.dart';

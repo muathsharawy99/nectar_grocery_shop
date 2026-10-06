@@ -3,20 +3,16 @@ import 'base.dart';
 
 /// A product from the store API (also the shape of the cart lines).
 class ProductModel extends Model {
-  late String name, description, image, available;
-  late int quantity, categoryId;
-  late double price, offer;
+  late String name, description;
+  late int quantity;
+  late double price;
 
   ProductModel.fromJson([Map<String, dynamic>? json]) {
     id = stringFromJson(json, 'id');
     name = stringFromJson(json, 'name');
     description = stringFromJson(json, 'description');
-    image = stringFromJson(json, 'image');
-    available = stringFromJson(json, 'available');
     quantity = intFromJson(json, 'quantity');
-    categoryId = intFromJson(json, 'category_id');
     price = doubleFromJson(json, 'price');
-    offer = doubleFromJson(json, 'offer');
   }
 
   /// `4` instead of `4.0`, `4.99` stays `4.99`.
@@ -29,12 +25,8 @@ class ProductModel extends Model {
     'id': id,
     'name': name,
     'description': description,
-    'image': image,
-    'available': available,
     'quantity': quantity,
-    'category_id': categoryId,
     'price': price,
-    'offer': offer,
   };
 
   /// Products from a list response: `{data: [...]}` or the paginated

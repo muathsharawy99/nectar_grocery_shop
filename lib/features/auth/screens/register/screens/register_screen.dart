@@ -68,7 +68,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         }
       },
       builder: (context, state) => AuthScaffold(
-        reverse: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

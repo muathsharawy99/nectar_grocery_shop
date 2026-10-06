@@ -28,33 +28,15 @@ class $AssetsImagesGen {
   /// File path: assets/images/deco.png
   AssetGenImage get deco =>
       const AssetGenImage('assets/images/deco.png');
-  /// File path: assets/images/facebook.png
-  AssetGenImage get facebook =>
-      const AssetGenImage('assets/images/facebook.png');
-  /// File path: assets/images/flag.png
-  AssetGenImage get flag =>
-      const AssetGenImage('assets/images/flag.png');
   /// File path: assets/images/ginger.png
   AssetGenImage get ginger =>
       const AssetGenImage('assets/images/ginger.png');
-  /// File path: assets/images/google.png
-  AssetGenImage get google =>
-      const AssetGenImage('assets/images/google.png');
-  /// File path: assets/images/location.png
-  AssetGenImage get location =>
-      const AssetGenImage('assets/images/location.png');
   /// File path: assets/images/m.jpg
   AssetGenImage get m =>
       const AssetGenImage('assets/images/m.jpg');
   /// File path: assets/images/man.png
   AssetGenImage get man =>
       const AssetGenImage('assets/images/man.png');
-  /// File path: assets/images/nectar_logo.png
-  AssetGenImage get nectarLogo =>
-      const AssetGenImage('assets/images/nectar_logo.png');
-  /// File path: assets/images/nectar_typo.png
-  AssetGenImage get nectarTypo =>
-      const AssetGenImage('assets/images/nectar_typo.png');
   /// File path: assets/images/splash.png
   AssetGenImage get splash =>
       const AssetGenImage('assets/images/splash.png');
@@ -64,9 +46,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/vege.png
   AssetGenImage get vege =>
       const AssetGenImage('assets/images/vege.png');
-  /// File path: assets/images/vegets.png
-  AssetGenImage get vegets =>
-      const AssetGenImage('assets/images/vegets.png');
   /// List of all assets
   List<AssetGenImage> get values => [
     back,
@@ -74,19 +53,12 @@ class $AssetsImagesGen {
     carrot,
     carrotColored,
     deco,
-    facebook,
-    flag,
     ginger,
-    google,
-    location,
     m,
     man,
-    nectarLogo,
-    nectarTypo,
     splash,
     topColor,
     vege,
-    vegets,
   ];
 }
 

@@ -11,7 +11,6 @@ import 'core/extensions/unified_extensions.dart';
 import 'core/services/bloc_observer.dart';
 import 'core/services/service_locator.dart';
 import 'core/services/shared_preference.dart';
-import 'core/utils/phoenix.dart';
 import 'core/utils/theme/light_theme.dart';
 import 'core/utils/unfocus.dart';
 
@@ -61,7 +60,6 @@ class Nectar extends StatelessWidget {
             initialRoute: AppRoutes.init.initial,
             routes: AppRoutes.init.appRoutes,
             navigatorKey: navigator,
-            navigatorObservers: [appRouteObserver],
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
@@ -77,13 +75,11 @@ class Nectar extends StatelessWidget {
                 }
                 return ErrorWidget(errorDetails.exception);
               };
-              return Phoenix(
-                child: MediaQuery(
-                  data: MediaQuery.of(
-                    context,
-                  ).copyWith(textScaler: TextScaler.linear(1.sp)),
-                  child: Unfocus(child: child ?? const SizedBox.shrink()),
-                ),
+              return MediaQuery(
+                data: MediaQuery.of(
+                  context,
+                ).copyWith(textScaler: TextScaler.linear(1.sp)),
+                child: Unfocus(child: child ?? const SizedBox.shrink()),
               );
             },
           );

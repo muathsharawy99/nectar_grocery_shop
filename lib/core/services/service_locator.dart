@@ -4,7 +4,6 @@ import '../../features/auth/screens/login/manager/login_cubit.dart';
 import '../../features/auth/screens/login/service/login_service.dart';
 import '../../features/auth/screens/register/manager/register_cubit.dart';
 import '../../features/auth/screens/register/service/register_service.dart';
-import '../../features/auth/screens/verify/manager/verify_cubit.dart';
 import '../../features/categories/screens/list/manager/categories_cubit.dart';
 import '../../features/categories/screens/products/manager/category_products_cubit.dart';
 import '../../features/categories/service/categories_service.dart';
@@ -28,7 +27,6 @@ class ServicesLocator {
     //auth
     sl.registerFactory(() => LoginCubit(LoginService()));
     sl.registerFactory(() => RegisterCubit(RegisterService()));
-    sl.registerFactory(() => VerifyCubit());
 
     //layout
     sl.registerFactory(() => LayoutCubit());

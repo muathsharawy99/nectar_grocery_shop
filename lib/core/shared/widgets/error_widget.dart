@@ -5,109 +5,67 @@ import 'package:nectaar/gen/locale_keys.g.dart';
 
 import '../../extensions/unified_extensions.dart';
 
+/// Full-page error with an icon (wifi-off for network errors), the message
+/// and a refresh button.
 class CustomErrorWidget extends StatelessWidget {
   final String title;
-  final String? subtitle, image;
   final ErrorType? errorStatus;
   final void Function()? onTap;
-  final String? btnTitle;
-  final double? height;
-  final EdgeInsetsGeometry? padding;
 
   const CustomErrorWidget({
     super.key,
     required this.title,
-    this.subtitle,
-    this.image,
     this.errorStatus,
-    this.height,
-    this.padding,
     this.onTap,
-    this.btnTitle,
   });
 
   @override
   Widget build(BuildContext context) {
+    final isNetwork = errorStatus?.isNetwork == true;
     return SafeArea(
-      child: Padding(
-        padding:
-            padding ??
-            EdgeInsets.only(bottom: MediaQuery.paddingOf(context).bottom),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (image?.isNotEmpty == true)
-              CustomImage(image, height: AppSize.s150.h)
-            else
-              CustomRadiusIcon(
-                size: AppSize.s64.w,
-                backgroundColor: errorStatus?.isNetwork == true
-                    ? context.warningContainer
-                    : context.errorContainer,
-                child: Icon(
-                  errorStatus?.isNetwork == true
-                      ? Icons.wifi_off_rounded
-                      : Icons.error_outline_rounded,
-                  size: AppSize.s28.w,
-                  color: errorStatus?.isNetwork == true
-                      ? context.warningColor
-                      : context.errorTextColor,
-                ),
-              ).center,
-            AppSize.s16.h.verticalSpace,
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: context.bold.copyWith(fontSize: FontSize.s15),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          CustomRadiusIcon(
+            size: AppSize.s64.w,
+            backgroundColor: isNetwork
+                ? context.warningContainer
+                : context.errorContainer,
+            child: Icon(
+              isNetwork ? Icons.wifi_off_rounded : Icons.error_outline_rounded,
+              size: AppSize.s28.w,
+              color: isNetwork ? context.warningColor : context.errorTextColor,
             ),
-            if (subtitle?.isNotEmpty == true) ...[
-              AppSize.s6.h.verticalSpace,
-              Text(
-                subtitle ?? '',
-                textAlign: TextAlign.center,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: context.regular.copyWith(
-                  fontSize: FontSize.s12_5,
-                  color: context.mediumTextColor,
-                ),
-              ),
-            ],
-            if (onTap != null) ...[
-              AppSize.s20.h.verticalSpace,
-              ButtonWidget(
-                title: btnTitle ?? LocaleKeys.static_refresh.tr(),
-                onTap: onTap,
-              ),
-            ],
+          ).center,
+          SizedBox(height: AppSize.s16.h),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: context.bold.copyWith(fontSize: FontSize.s15),
+          ),
+          if (onTap != null) ...[
+            SizedBox(height: AppSize.s20.h),
+            ButtonWidget(title: LocaleKeys.static_refresh.tr(), onTap: onTap),
           ],
-        ).withPadding(horizontal: AppSize.s24.w),
-      ),
+        ],
+      ).withPadding(horizontal: AppSize.s24.w),
     );
   }
 }
 
+/// "Nothing here" message with an optional refresh button.
 class CustomEmptyWidget extends StatelessWidget {
-  final ErrorType? errorStatus;
   final String? errorMessage;
   final VoidCallback? onTap;
 
-  const CustomEmptyWidget({
-    super.key,
-    this.errorStatus = ErrorType.empty,
-    this.errorMessage,
-    this.onTap,
-  });
+  const CustomEmptyWidget({super.key, this.errorMessage, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomRadiusIcon(
               size: AppSize.s64.w,
@@ -118,7 +76,7 @@ class CustomEmptyWidget extends StatelessWidget {
                 color: context.mutedTextColor,
               ),
             ),
-            AppSize.s16.h.verticalSpace,
+            SizedBox(height: AppSize.s16.h),
             Text(
               errorMessage ?? LocaleKeys.validations_there_is_no_data.tr(),
               style: context.medium.copyWith(
@@ -127,7 +85,7 @@ class CustomEmptyWidget extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            AppSize.s24.h.verticalSpace,
+            SizedBox(height: AppSize.s24.h),
             if (onTap != null)
               SizedBox(
                 width: 0.5.sw,

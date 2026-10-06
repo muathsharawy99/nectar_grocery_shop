@@ -6,10 +6,6 @@ class NamedRoutes {
   // Auth
   static const login = "/login";
   static const register = "/register";
-  static const phoneSignIn = "/phone_sign_in";
-  static const mobileNumber = "/mobile_number";
-  static const verify = "/verify";
-  static const selectLocation = "/select_location";
 
   // App — the landing after sign in: the layout (bottom navigation).
   static const home = "/home";

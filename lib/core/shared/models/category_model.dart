@@ -3,16 +3,15 @@ import 'base.dart';
 
 /// A product category from the store API.
 class CategoryModel extends Model {
-  late String name, image;
+  late String name;
 
   CategoryModel.fromJson([Map<String, dynamic>? json]) {
     id = stringFromJson(json, 'id');
     name = stringFromJson(json, 'name');
-    image = stringFromJson(json, 'image');
   }
 
   @override
-  Map<String, dynamic> toJson() => {'id': id, 'name': name, 'image': image};
+  Map<String, dynamic> toJson() => {'id': id, 'name': name};
 
   /// Categories from a list response: `{data: [...]}` or the paginated
   /// `{data: {data: [...]}}` of the store API.

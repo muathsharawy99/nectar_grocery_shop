@@ -8,9 +8,9 @@ import 'promo_banner.dart';
 
 /// Auto-playing promo banners with page dots.
 class BannerCarousel extends StatefulWidget {
-  const BannerCarousel({super.key, this.count = 3});
+  const BannerCarousel({super.key});
 
-  final int count;
+  static const _count = 3;
 
   @override
   State<BannerCarousel> createState() => _BannerCarouselState();
@@ -27,7 +27,7 @@ class _BannerCarouselState extends State<BannerCarousel> {
     _timer = Timer.periodic(AppConstants.bannerInterval, (_) {
       if (!_controller.hasClients) return;
       _controller.animateToPage(
-        (_page + 1) % widget.count,
+        (_page + 1) % BannerCarousel._count,
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
       );
@@ -49,7 +49,7 @@ class _BannerCarouselState extends State<BannerCarousel> {
           aspectRatio: 19 / 6,
           child: PageView.builder(
             controller: _controller,
-            itemCount: widget.count,
+            itemCount: BannerCarousel._count,
             onPageChanged: (page) => setState(() => _page = page),
             itemBuilder: (_, _) => const PromoBanner().withPadding(
               horizontal: AppSize.s5.w,
@@ -60,7 +60,7 @@ class _BannerCarouselState extends State<BannerCarousel> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (var i = 0; i < widget.count; i++)
+            for (var i = 0; i < BannerCarousel._count; i++)
               AnimatedContainer(
                 duration: const Duration(milliseconds: 250),
                 margin: EdgeInsets.symmetric(horizontal: AppSize.s2.w),

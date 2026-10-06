@@ -10,13 +10,12 @@ import '../utils/logger.dart';
 
 class ServerGate {
   static bool logEnabled = kDebugMode;
-  static bool logFullAuthToken = false;
 
-  Future<Map<String, dynamic>> get constHeader async => {
+  Map<String, dynamic> get constHeader => {
     if (UserModel.i.isAuth) "Authorization": "Bearer ${UserModel.i.token}",
     "Accept": "application/json",
     "Accept-Language": LocaleKeys.lang.tr(),
-  }..removeWhere((key, value) => value == null || '$value'.trim().isEmpty);
+  };
 
   final Dio _dio = Dio();
 
@@ -36,183 +35,56 @@ class ServerGate {
     map?.removeWhere((key, value) => value == null || '$value'.trim().isEmpty);
   }
 
-  Future<String> _resolveUrl(String url) async =>
+  String _resolveUrl(String url) =>
       url.startsWith('http') ? url : '${ApiConstants.baseUrl}/$url';
 
-  /// [keepNullsInBody] sends `body` as-is (no null/empty stripping) - for
-  /// endpoints where an explicit `null` is meaningful.
+  /// POST `body` as JSON.
   Future<CustomResponse<T>> sendToServer<T>({
     required String url,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
     Map<String, dynamic>? body,
-    Map<String, dynamic>? formData,
-    bool keepNullsInBody = false,
   }) async {
     try {
-      _clean(params);
-      _clean(headers);
-      if (!keepNullsInBody) _clean(body);
-      _clean(formData);
-      final res = await _dio.post(
-        await _resolveUrl(url),
-        data: formData == null ? (body ?? {}) : FormData.fromMap(formData),
-        options: Options(
-          headers: {...(await constHeader), if (headers != null) ...headers},
-        ),
-        queryParameters: params,
-      );
-      return _asSuccessResponse(res);
-    } on DioException catch (e) {
-      return handleServerError(e);
-    } catch (e) {
-      return CustomResponse(
-        success: false,
-        statusCode: 422,
-        errType: ErrorType.unknown,
-        msg: kDebugMode
-            ? '$e'
-            : LocaleKeys.something_went_wrong_please_try_again.tr(),
-      );
-    }
-  }
-
-  Future<CustomResponse<T>> deleteFromServer<T>({
-    required String url,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
-    Map<String, dynamic>? body,
-    Map<String, dynamic>? formData,
-  }) async {
-    try {
-      _clean(params);
-      _clean(headers);
       _clean(body);
-      _clean(formData);
-      final res = await _dio.delete(
-        await _resolveUrl(url),
-        data: formData == null ? (body ?? {}) : FormData.fromMap(formData),
-        options: Options(
-          headers: {...(await constHeader), if (headers != null) ...headers},
-        ),
-        queryParameters: params,
+      final res = await _dio.post(
+        _resolveUrl(url),
+        data: body ?? {},
+        options: Options(headers: constHeader),
       );
       return _asSuccessResponse(res);
     } on DioException catch (e) {
       return handleServerError(e);
     } catch (e) {
-      return CustomResponse(
-        success: false,
-        statusCode: 422,
-        errType: ErrorType.unknown,
-        msg: kDebugMode
-            ? '$e'
-            : LocaleKeys.something_went_wrong_please_try_again.tr(),
-      );
+      return _unknownError(e);
     }
   }
 
   Future<CustomResponse<T>> getFromServer<T>({
     required String url,
-    Map<String, dynamic>? headers,
     Map<String, dynamic>? params,
-    CancelToken? cancelToken,
   }) async {
     try {
       _clean(params);
-      _clean(headers);
       final res = await _dio.get(
-        await _resolveUrl(url),
-        cancelToken: cancelToken,
-        options: Options(
-          headers: {...(await constHeader), if (headers != null) ...headers},
-        ),
+        _resolveUrl(url),
+        options: Options(headers: constHeader),
         queryParameters: params,
       );
       return _asSuccessResponse(res);
     } on DioException catch (e) {
       return handleServerError(e);
     } catch (e) {
-      return CustomResponse(
-        success: false,
-        statusCode: 402,
-        errType: ErrorType.unknown,
-        msg: kDebugMode
-            ? '$e'
-            : LocaleKeys.something_went_wrong_please_try_again.tr(),
-      );
+      return _unknownError(e);
     }
   }
 
-  Future<CustomResponse<T>> putToServer<T>({
-    required String url,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
-    Map<String, dynamic>? body,
-    Map<String, dynamic>? formData,
-  }) async {
-    try {
-      _clean(params);
-      _clean(headers);
-      _clean(body);
-      _clean(formData);
-      final res = await _dio.put(
-        await _resolveUrl(url),
-        data: formData == null ? (body ?? {}) : FormData.fromMap(formData),
-        options: Options(
-          headers: {...(await constHeader), if (headers != null) ...headers},
-        ),
-        queryParameters: params,
-      );
-      return _asSuccessResponse(res);
-    } on DioException catch (e) {
-      return handleServerError(e);
-    } catch (e) {
-      return CustomResponse(
-        success: false,
-        statusCode: 422,
-        errType: ErrorType.unknown,
-        msg: kDebugMode
-            ? '$e'
-            : LocaleKeys.something_went_wrong_please_try_again.tr(),
-      );
-    }
-  }
-
-  Future<CustomResponse<T>> patchToServer<T>({
-    required String url,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
-    Map<String, dynamic>? body,
-    Map<String, dynamic>? formData,
-  }) async {
-    try {
-      _clean(params);
-      _clean(headers);
-      _clean(body);
-      _clean(formData);
-      final res = await _dio.patch(
-        await _resolveUrl(url),
-        data: formData == null ? (body ?? {}) : FormData.fromMap(formData),
-        options: Options(
-          headers: {...(await constHeader), if (headers != null) ...headers},
-        ),
-        queryParameters: params,
-      );
-      return _asSuccessResponse(res);
-    } on DioException catch (e) {
-      return handleServerError(e);
-    } catch (e) {
-      return CustomResponse(
-        success: false,
-        statusCode: 422,
-        errType: ErrorType.unknown,
-        msg: kDebugMode
-            ? '$e'
-            : LocaleKeys.something_went_wrong_please_try_again.tr(),
-      );
-    }
-  }
+  CustomResponse<T> _unknownError<T>(Object e) => CustomResponse(
+    success: false,
+    statusCode: 422,
+    errType: ErrorType.unknown,
+    msg: kDebugMode
+        ? '$e'
+        : LocaleKeys.something_went_wrong_please_try_again.tr(),
+  );
 
   CustomResponse<T> _asSuccessResponse<T>(Response<dynamic> res) {
     final statusCode = res.statusCode ?? 422;

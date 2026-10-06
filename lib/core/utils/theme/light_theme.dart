@@ -23,9 +23,6 @@ class LightTheme {
       fontFamily: fontFamily,
     );
     final textBold = LightTheme.textBold.copyWith(fontFamily: fontFamily);
-    final buttonShape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(AppSize.radiusButton.r),
-    );
 
     // Nectar fields are underlined (no box), like the original design.
     UnderlineInputBorder fieldBorder(Color color) =>
@@ -171,30 +168,6 @@ class LightTheme {
         space: AppSize.s1,
       ),
 
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colors.primary,
-          foregroundColor: colors.onPrimary,
-          disabledBackgroundColor: colors.controlBorder,
-          disabledForegroundColor: colors.onPrimary,
-          elevation: 0,
-          minimumSize: Size.fromHeight(AppSize.buttonHeight.h),
-          shape: buttonShape,
-          textStyle: textSemiBold.copyWith(fontSize: FontSize.s14_5),
-        ),
-      ),
-
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          foregroundColor: colors.regularText,
-          backgroundColor: colors.surface,
-          minimumSize: Size.fromHeight(AppSize.buttonHeightSmall.h),
-          side: BorderSide(color: colors.borderColor),
-          shape: buttonShape,
-          textStyle: textSemiBold.copyWith(fontSize: FontSize.s13_5),
-        ),
-      ),
-
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: colors.primary,
@@ -246,123 +219,6 @@ class LightTheme {
         selectionHandleColor: colors.primary,
       ),
 
-      cardTheme: CardThemeData(
-        color: colors.cardSurface,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.borderRadius.r),
-          side: BorderSide(color: colors.borderColor),
-        ),
-      ),
-
-      dialogTheme: DialogThemeData(
-        backgroundColor: colors.surface,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        barrierColor: colors.barrierColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s24.r),
-        ),
-        titleTextStyle: textBold.copyWith(
-          fontSize: FontSize.s15,
-          color: colors.defaultTextColor,
-        ),
-        contentTextStyle: textRegular.copyWith(
-          fontSize: FontSize.s12_5,
-          color: colors.regularText,
-        ),
-      ),
-
-      bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: colors.surface,
-        modalBackgroundColor: colors.surface,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        modalElevation: 0,
-        modalBarrierColor: colors.barrierColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(AppSize.radiusSheet.r),
-          ),
-        ),
-      ),
-
-      chipTheme: ChipThemeData(
-        backgroundColor: colors.surface,
-        selectedColor: colors.primary,
-        showCheckmark: false,
-        side: BorderSide(color: colors.borderColor),
-        shape: const StadiumBorder(),
-        labelStyle: textSemiBold.copyWith(
-          fontSize: FontSize.s12,
-          color: colors.regularText,
-        ),
-        secondaryLabelStyle: textSemiBold.copyWith(
-          fontSize: FontSize.s12,
-          color: colors.onPrimary,
-        ),
-      ),
-
-      checkboxTheme: CheckboxThemeData(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.compact,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s4.r),
-        ),
-        fillColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected)
-              ? colors.primary
-              : colors.surface,
-        ),
-        checkColor: WidgetStateProperty.all(colors.onPrimary),
-        side: WidgetStateBorderSide.resolveWith(
-          (states) => BorderSide(
-            width: AppSize.s1_5,
-            color: states.contains(WidgetState.selected)
-                ? colors.primary
-                : colors.controlBorder,
-          ),
-        ),
-      ),
-
-      radioTheme: RadioThemeData(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.compact,
-        fillColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected)
-              ? colors.primary
-              : colors.controlBorder,
-        ),
-      ),
-
-      switchTheme: SwitchThemeData(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        thumbColor: WidgetStateProperty.all(colors.surface),
-        trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
-        trackColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected)
-              ? colors.switchOnColor
-              : colors.switchOffColor,
-        ),
-      ),
-
-      tabBarTheme: TabBarThemeData(
-        indicatorSize: TabBarIndicatorSize.tab,
-        dividerColor: Colors.transparent,
-        labelColor: colors.onPrimary,
-        unselectedLabelColor: colors.mediumText,
-        labelStyle: textSemiBold.copyWith(fontSize: FontSize.s12_5),
-        unselectedLabelStyle: textSemiBold.copyWith(fontSize: FontSize.s12_5),
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
-        splashFactory: NoSplash.splashFactory,
-        indicator: BoxDecoration(
-          color: colors.primary,
-          borderRadius: BorderRadius.circular(AppSize.s10.r),
-        ),
-      ),
-
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         backgroundColor: colors.surface,
@@ -374,11 +230,6 @@ class LightTheme {
         unselectedIconTheme: IconThemeData(size: AppSize.s21.w),
         selectedLabelStyle: textBold.copyWith(fontSize: FontSize.s10),
         unselectedLabelStyle: textMedium.copyWith(fontSize: FontSize.s10),
-      ),
-
-      progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: colors.primary,
-        linearTrackColor: colors.surfaceVariant,
       ),
     );
   }

@@ -1,22 +1,17 @@
 {
   "lang": "en",
   "currency": "$",
-  "app_name": "Nectar",
   "poor_connection_check_the_quality_of_the_internet": "Poor connection. Check the quality of the internet",
   "please_check_your_internet_connection": "Please check your internet connection",
   "something_went_wrong_please_try_again": "Something went wrong, please try again.",
   "static": {
-    "loading": "Loading",
-    "optional": "Optional",
     "refresh": "Refresh",
     "this_field": "This Field"
   },
   "validations": {
     "empty_field": "Field is required",
     "email_invalid": "Invalid email address",
-    "phone_digits_only": "The mobile number must contain digits only.",
-    "there_is_no_data": "There is no data available",
-    "wrong_otp": "Please enter the code"
+    "there_is_no_data": "There is no data available"
   },
   "onboarding": {
     "title": "Welcome\nto our store",
@@ -38,21 +33,7 @@
     "terms_of_service": "Terms of Service",
     "terms_and": " and ",
     "privacy_policy": "Privacy Policy.",
-    "registered": "Your account was created",
-    "phone_sign_in_title": "Get your groceries\nwith nectar",
-    "mobile_number": "Mobile Number",
-    "social_title": "Or connect with social media",
-    "continue_with_google": "Continue with Google",
-    "continue_with_facebook": "Continue with Facebook",
-    "enter_mobile_number": "Enter your mobile number",
-    "demo_number_hint": "Enter from 0 to 9",
-    "enter_code": "Enter your 4-digit code",
-    "demo_code_hint": "Enter from 1 to 4",
-    "resend_code": "Resend Code",
-    "select_location_title": "Select Your Location",
-    "select_location_subtitle": "Switch on your location to stay in tune with what’s happening in your area",
-    "your_zone": "Your Zone",
-    "submit": "Submit"
+    "registered": "Your account was created"
   },
   "layout": {
     "shop": "Shop",

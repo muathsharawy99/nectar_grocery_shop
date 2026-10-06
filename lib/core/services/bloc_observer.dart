@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../utils/logger.dart';
 
+/// Logs cubit lifecycles and state changes in debug builds.
 class AppBlocObserver extends BlocObserver {
   static final _log = LoggerDebug(constTitle: 'BlocObserver');
 
@@ -28,28 +29,8 @@ class AppBlocObserver extends BlocObserver {
   }
 
   @override
-  void onEvent(Bloc bloc, Object? event) {
-    if (kDebugMode) {
-      _log.yellow('EVENT: ${bloc.runtimeType} | ${event.runtimeType}');
-    }
-    super.onEvent(bloc, event);
-  }
-
-  @override
-  void onTransition(Bloc bloc, Transition transition) {
-    if (kDebugMode) {
-      _log.cyan(
-        'TRANSITION: ${bloc.runtimeType} | Event: ${transition.event.runtimeType}',
-      );
-      _log.cyan('  From: ${transition.currentState}');
-      _log.cyan('  To:   ${transition.nextState}');
-    }
-    super.onTransition(bloc, transition);
-  }
-
-  @override
   void onChange(BlocBase bloc, Change change) {
-    if (kDebugMode && bloc is Cubit) {
+    if (kDebugMode) {
       _log.blue('CHANGE: ${bloc.runtimeType}');
       _log.blue('  From: ${change.currentState}');
       _log.blue('  To:   ${change.nextState}');

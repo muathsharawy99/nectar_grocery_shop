@@ -5,13 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../extensions/unified_extensions.dart';
 import '../../utils/theme/color/light_theme_color.dart';
 
-enum MessageType { success, fail, warning }
+enum MessageType { success, fail }
 
 /// Dark floating toast from the design (colored dot + message).
 class FlashHelper {
   static Future<void> showToast(
     String msg, {
-    int duration = 3,
     MessageType type = MessageType.fail,
   }) async {
     final context = navigator.currentContext;
@@ -69,18 +68,12 @@ class FlashHelper {
           ),
         );
       },
-      duration: Duration(seconds: duration),
+      duration: const Duration(seconds: 3),
     );
   }
 
-  static Color _getDotColor(MessageType msgType) {
-    switch (msgType) {
-      case MessageType.success:
-        return LightThemeColor().toastSuccessDot;
-      case MessageType.warning:
-        return LightThemeColor().secondary;
-      default:
-        return LightThemeColor().toastErrorDot;
-    }
-  }
+  static Color _getDotColor(MessageType msgType) => switch (msgType) {
+    MessageType.success => LightThemeColor().toastSuccessDot,
+    MessageType.fail => LightThemeColor().toastErrorDot,
+  };
 }

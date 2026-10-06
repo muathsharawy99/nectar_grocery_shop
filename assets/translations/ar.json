@@ -1,22 +1,17 @@
 {
   "lang": "ar",
   "currency": "$",
-  "app_name": "نكتار",
   "poor_connection_check_the_quality_of_the_internet": "اتصال ضعيف. تحقق من جودة الإنترنت",
   "please_check_your_internet_connection": "يرجى التحقق من اتصال الإنترنت الخاص بك",
   "something_went_wrong_please_try_again": "حدث خطأ ما حاول مرة أخرى.",
   "static": {
-    "loading": "جاري التحميل",
-    "optional": "اختياري",
     "refresh": "تحديث",
     "this_field": "هذا الحقل"
   },
   "validations": {
     "empty_field": "حقل مطلوب",
     "email_invalid": "بريد إلكتروني غير صالح",
-    "phone_digits_only": "رقم الموبايل يجب أن يحتوي على أرقام فقط.",
-    "there_is_no_data": "لا يوجد بيانات الآن",
-    "wrong_otp": "يرجى إدخال الرمز"
+    "there_is_no_data": "لا يوجد بيانات الآن"
   },
   "onboarding": {
     "title": "مرحبًا بك\nفي متجرنا",
@@ -38,21 +33,7 @@
     "terms_of_service": "شروط الخدمة",
     "terms_and": " و",
     "privacy_policy": "سياسة الخصوصية.",
-    "registered": "تم إنشاء حسابك",
-    "phone_sign_in_title": "احصل على مشترياتك\nمع نكتار",
-    "mobile_number": "رقم الموبايل",
-    "social_title": "أو سجّل عبر وسائل التواصل",
-    "continue_with_google": "المتابعة باستخدام Google",
-    "continue_with_facebook": "المتابعة باستخدام Facebook",
-    "enter_mobile_number": "أدخل رقم الموبايل",
-    "demo_number_hint": "أدخل الأرقام من 0 إلى 9",
-    "enter_code": "أدخل الرمز المكوّن من 4 أرقام",
-    "demo_code_hint": "أدخل الأرقام من 1 إلى 4",
-    "resend_code": "إعادة إرسال الرمز",
-    "select_location_title": "اختر موقعك",
-    "select_location_subtitle": "فعّل الموقع لتبقى على اطلاع بما يحدث في منطقتك",
-    "your_zone": "منطقتك",
-    "submit": "إرسال"
+    "registered": "تم إنشاء حسابك"
   },
   "layout": {
     "shop": "المتجر",

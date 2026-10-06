@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../features/auth/screens/login/screens/login_screen.dart';
-import '../../../features/auth/screens/mobile_number/screens/mobile_number_screen.dart';
-import '../../../features/auth/screens/phone_sign_in/screens/phone_sign_in_screen.dart';
 import '../../../features/auth/screens/register/screens/register_screen.dart';
-import '../../../features/auth/screens/select_location/screens/select_location_screen.dart';
-import '../../../features/auth/screens/verify/screens/verify_screen.dart';
 import '../../../features/categories/screens/list/screens/categories_screen.dart';
 import '../../../features/categories/screens/products/screens/category_products_screen.dart';
 import '../../../features/intro/onboarding/screens/onboarding_screen.dart';
@@ -30,10 +26,6 @@ class AppRoutes {
     // Auth
     NamedRoutes.login: (c) => const LoginScreen(),
     NamedRoutes.register: (c) => const RegisterScreen(),
-    NamedRoutes.phoneSignIn: (c) => const PhoneSignInScreen(),
-    NamedRoutes.mobileNumber: (c) => const MobileNumberScreen(),
-    NamedRoutes.verify: (c) => const VerifyScreen(),
-    NamedRoutes.selectLocation: (c) => const SelectLocationScreen(),
 
     // App
     NamedRoutes.home: (c) => const LayoutScreen(),
